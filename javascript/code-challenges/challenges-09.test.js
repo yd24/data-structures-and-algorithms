@@ -142,7 +142,8 @@ hasChildrenValues(characters, 'Sansa') will return false
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
   let obj = arr.find(char => char.name === character);
-  return Object.values(obj).find(val => Array.isArray(val)) !== undefined;
+  let children = Object.values(obj).find(val => Array.isArray(val));
+  return children !== undefined && children.length > 0;
 };
 
 /* ------------------------------------------------------------------------------------------------
