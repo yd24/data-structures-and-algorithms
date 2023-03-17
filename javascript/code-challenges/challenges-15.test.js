@@ -169,12 +169,22 @@ Here is a sample board:
 const detectTicTacToeWin = (board) => {
   // Solution code here...
   let values = board.flat();
-  for (let i = 1; i < 4; i++) {
-    if (values[i - 1] !== '' && values[i - 1] === values[2 * i] && values[i - 1] === values[(i - 1) + (3 * i)]) {
-      return true;
-    }
-  }
-  return false;
+  let win = false;
+  win = checkForWin(values[0], values[1], values[2]) ? true : win;
+  win = checkForWin(values[3], values[4], values[5]) ? true : win;
+  win = checkForWin(values[6], values[7], values[8]) ? true : win;
+
+  win = checkForWin(values[0], values[3], values[6]) ? true : win;
+  win = checkForWin(values[1], values[4], values[7]) ? true : win;
+  win = checkForWin(values[2], values[5], values[8]) ? true : win;
+
+  win = checkForWin(values[0], values[4], values[8]) ? true : win;
+  win = checkForWin(values[2], values[4], values[6]) ? true : win;
+  return win;
+};
+
+const checkForWin = (space1, space2, space3) => {
+  return space1 !== '' && space1 === space2 && space1 === space3;
 };
 
 /* ------------------------------------------------------------------------------------------------
