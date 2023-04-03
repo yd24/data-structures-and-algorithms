@@ -1,5 +1,5 @@
 # Challenge Title
-<!-- Description of the challenge -->
+Reversing an array
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
