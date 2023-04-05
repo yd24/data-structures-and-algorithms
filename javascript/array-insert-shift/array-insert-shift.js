@@ -1,3 +1,5 @@
+'use strict';
+
 function arrayInsertShift (arr, val) {
   let newArray = [];
   let middle = Math.floor(arr.length / 2);

@@ -1,3 +1,5 @@
+'use strict';
+
 const arrayInsertShift = require('./array-insert-shift.js');
 
 describe('Checking if function inserts value into middle of array properly', () => {
