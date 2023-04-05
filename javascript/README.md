@@ -5,6 +5,7 @@
 ### Code Challenge Links
 
 * [Day 1](./array-reverse/README.md)
+* [Day 2](./array-insert-shift/README.md)
 
 ### Folder and Challenge Setup
 
