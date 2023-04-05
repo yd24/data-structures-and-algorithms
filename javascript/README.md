@@ -6,6 +6,7 @@
 
 * [Day 1](./array-reverse/README.md)
 * [Day 2](./array-insert-shift/README.md)
+* [Day 3](./array-binary-search/README.md)
 
 ### Folder and Challenge Setup
 
