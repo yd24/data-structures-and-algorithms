@@ -13,15 +13,46 @@ class LinkedList {
   }
 
   insert(value) {
-    return;
+    let node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let current = this.traverse();
+      current.next = node;
+    }
   }
 
   includes(value) {
-    return;
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
   }
 
   toString() {
-    return;
+    let string = '';
+    if (this.head) {
+      let current = this.head;
+      string = `{ ${current.value} } -> `;
+      while (current.next) {
+        current = current.next;
+        string = string.concat(`{ ${current.value} } -> `);
+      }
+    }
+    string = string.concat('NULL');
+    return string;
+  }
+
+  traverse() {
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    return current;
   }
 }
 
