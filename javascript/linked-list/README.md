@@ -7,6 +7,8 @@ Implement a linked list
 ## Whiteboard Process
 ![image](./Whiteboard.png)
 
+![image](./Whiteboard2.png)
+
 ## Approach & Efficiency
 * Have a Node object that has a value and a next value that points to null or another Node.
 * Create a Linked List object that has a head that points to null or another Node.
@@ -19,3 +21,7 @@ Inserting a node at the end will have O(N) time complexity because it must trave
 Checking if a Node exists in the list and returning a string version of the list will also have O(N) time complexity for the same reason.
 
 Our space complexity is O(1) because we only store a single value at a time that has a pointer to other parts of the list.
+
+**insertBefore/insertAfter**
+* O(N) time complexity because worst case is it'll have to traverse the whole list to insert the value.
+* O(1) space complexity because worst case only has storing values in temporary nodes.

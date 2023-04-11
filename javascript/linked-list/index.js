@@ -12,13 +12,62 @@ class LinkedList {
     this.head = null;
   }
 
-  insert(value) {
+  prepend(value) {
+    let node = new Node(value);
+    if (this.head) {
+      node.next = this.head;
+      this.head = node;
+    } else {
+      this.head = node;
+    }
+  }
+
+  append(value) {
     let node = new Node(value);
     if (!this.head) {
       this.head = node;
     } else {
       let current = this.traverse();
       current.next = node;
+    }
+  }
+
+  insertBefore(value, newVal) {
+    let node = new Node(newVal);
+    let current = this.head;
+    let prev = this.head;
+    if (this.head) {
+      if (this.head.value === value) {
+        node.next = this.head;
+        this.head = node;
+      } else {
+        while (current) {
+          if (current.value === value) {
+            node.next = current;
+            current = prev;
+            current.next = node;
+            break;
+          }
+          prev = current;
+          current = current.next;
+        }
+      }
+    }
+  }
+
+  insertAfter(value, newVal) {
+    let node = new Node(newVal);
+    let current = this.head;
+    if (this.head) {
+      while (current) {
+        if (current.value === value) {
+          node.next = current.next;
+          current.next = node;
+          break;
+        } else {
+          current = current.next;
+        }
+      }
     }
   }
 
