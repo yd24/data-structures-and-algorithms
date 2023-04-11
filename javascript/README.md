@@ -8,6 +8,7 @@
 * [Day 2](./array-insert-shift/README.md)
 * [Day 3](./array-binary-search/README.md)
 * [Day 5](./linked-list/README.md)
+* [Day 6](./linked-list/README.md)
 
 ### Folder and Challenge Setup
 
