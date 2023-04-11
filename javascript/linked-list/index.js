@@ -1,7 +1,5 @@
 'use strict';
 
-const { next } = require("cheerio/lib/api/traversing");
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -12,6 +10,16 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+  }
+
+  prepend(value) {
+    let node = new Node(value);
+    if (this.head) {
+      node.next = this.head;
+      this.head = node;
+    } else {
+      this.head = node;
+    }
   }
 
   append(value) {
@@ -27,13 +35,20 @@ class LinkedList {
   insertBefore(value, newVal) {
     let node = new Node(newVal);
     let current = this.head;
+    let prev = this.head;
     if (this.head) {
-      while (current.next) {
-        if (current.next.value === value) {
-          node.next = current.next;
-          current.next = node;
-          current = current.next.next;
-        } else {
+      if (this.head.value === value) {
+        node.next = this.head;
+        this.head = node;
+      } else {
+        while (current) {
+          if (current.value === value) {
+            node.next = current;
+            current = prev;
+            current.next = node;
+            break;
+          }
+          prev = current;
           current = current.next;
         }
       }
@@ -48,7 +63,7 @@ class LinkedList {
         if (current.value === value) {
           node.next = current.next;
           current.next = node;
-          current = current.next.next;
+          break;
         } else {
           current = current.next;
         }
