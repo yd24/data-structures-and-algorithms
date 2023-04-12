@@ -96,6 +96,17 @@ class LinkedList {
     return string;
   }
 
+  kthFromEnd(k) {
+    let current = this.head;
+    let tempArray = [];
+    while (current) {
+      tempArray.push(current.value);
+      current = current.next;
+    }
+    let position = tempArray.length - 1;
+    return tempArray[position - k];
+  }
+
   traverse() {
     let current = this.head;
     while (current.next) {

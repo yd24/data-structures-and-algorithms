@@ -144,4 +144,19 @@ describe('Linked List', () => {
     string2 = list2.toString();
     expect(string2).toEqual('{ 1 } -> { 8 } -> NULL');
   });
+
+  test('Can get Kth value from end of list', () => {
+    let list = new LinkedList();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+    //kth from end
+    expect(list.kthFromEnd(3)).toEqual(2);
+    //0th from end
+    expect(list.kthFromEnd(0)).toEqual(5);
+    //invalid k
+    expect(list.kthFromEnd(5)).toEqual(undefined);
+  });
 });
