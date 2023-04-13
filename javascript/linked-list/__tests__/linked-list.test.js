@@ -2,6 +2,7 @@
 
 // Require our linked list implementation
 const LinkedList = require('../index');
+const zipList = require('../zipList');
 
 describe('Linked List', () => {
   test('Can instantiate LinkedList', () => {
@@ -158,5 +159,21 @@ describe('Linked List', () => {
     expect(list.kthFromEnd(0)).toEqual(5);
     //invalid k
     expect(list.kthFromEnd(5)).toEqual(undefined);
+  });
+
+  test('Can merge two linked lists in a "zip" style', () => {
+    let list = new LinkedList();
+    let list2 = new LinkedList();
+
+    list.append(1);
+    list.append(2);
+    list.append(3);
+
+    list2.append(9);
+    list2.append(23);
+    list2.append(3);
+
+    const list3 = zipList(list, list2);
+    expect(list3.toString()).toEqual('{ 1 } -> { 9 } -> { 2 } -> { 23 } -> { 3 } -> { 3 } -> NULL');
   });
 });
