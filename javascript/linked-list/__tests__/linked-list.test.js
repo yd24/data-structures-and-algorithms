@@ -204,5 +204,22 @@ describe('Linked List', () => {
     list3 = zipList(list, list2);
 
     expect(list3.toString()).toEqual('{ 1 } -> { 9 } -> { 2 } -> { 23 } -> { 4 } -> { 5 } -> NULL');
+
+    list = new LinkedList();
+    list2 = new LinkedList();
+
+    list.append(1);
+    list2.append(2);
+
+    list3 = zipList(list, list2);
+
+    expect(list3.toString()).toEqual('{ 1 } -> { 2 } -> NULL');
+
+    list = new LinkedList();
+    list2 = new LinkedList();
+
+    list3 = zipList(list, list2);
+
+    expect(list3.toString()).toEqual('NULL');
   });
 });
