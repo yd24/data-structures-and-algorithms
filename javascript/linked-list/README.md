@@ -11,6 +11,8 @@ Implement a linked list
 
 ![image](./Whiteboard3.png)
 
+![image](./Whiteboard4.png)
+
 ## Approach & Efficiency
 * Have a Node object that has a value and a next value that points to null or another Node.
 * Create a Linked List object that has a head that points to null or another Node.
@@ -31,3 +33,7 @@ Our space complexity is O(1) because we only store a single value at a time that
 **kthFromEnd**
 * O(N) time complexity because worst is it'll have to traverse the whole list.
 * O(N) space complexity because we have to store an array the length of the linked list.
+
+**zipList**
+* O(N) time complexity because at worst it'll have to traverse both lists.
+* O(1) space complexity because we only store one node at a time.
