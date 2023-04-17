@@ -3,6 +3,7 @@
 Implement a linked list
 
 [Solution link](./index.js)
+[Solution link 2](./zipList.js)
 
 ## Whiteboard Process
 ![image](./Whiteboard.png)
