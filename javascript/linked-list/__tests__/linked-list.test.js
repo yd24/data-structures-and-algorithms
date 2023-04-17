@@ -173,7 +173,36 @@ describe('Linked List', () => {
     list2.append(23);
     list2.append(3);
 
-    const list3 = zipList(list, list2);
+    let list3 = zipList(list, list2);
     expect(list3.toString()).toEqual('{ 1 } -> { 9 } -> { 2 } -> { 23 } -> { 3 } -> { 3 } -> NULL');
+
+    list = new LinkedList();
+    list2 = new LinkedList();
+
+    list.append(1);
+    list.append(2);
+
+    list2.append(9);
+    list2.append(23);
+    list2.append(4);
+
+    list3 = zipList(list, list2);
+
+    expect(list3.toString()).toEqual('{ 1 } -> { 9 } -> { 2 } -> { 23 } -> { 4 } -> NULL');
+
+    list = new LinkedList();
+    list2 = new LinkedList();
+
+    list.append(1);
+    list.append(2);
+    list.append(4);
+    list.append(5);
+
+    list2.append(9);
+    list2.append(23);
+
+    list3 = zipList(list, list2);
+
+    expect(list3.toString()).toEqual('{ 1 } -> { 9 } -> { 2 } -> { 23 } -> { 4 } -> { 5 } -> NULL');
   });
 });
