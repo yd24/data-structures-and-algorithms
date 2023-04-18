@@ -9,6 +9,8 @@
 * [Day 3](./array-binary-search/README.md)
 * [Day 5](./linked-list/README.md)
 * [Day 6](./linked-list/README.md)
+* [Day 7](./linked-list/README.md)
+* [Day 10](./stack-and-queue/README.md)
 
 ### Folder and Challenge Setup
 

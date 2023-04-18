@@ -2,32 +2,41 @@
 ## Description
 Implement a stack and a queue.
 
-[Solution link](./index.js)
+[Solution link](./stack-and-queue.js)
 
 ## Whiteboard Process
 ![image](./Whiteboard.png)
 
-![image](./Whiteboard2.png)
-
-![image](./Whiteboard3.png)
-
 ## Approach & Efficiency
-* Have a Node object that has a value and a next value that points to null or another Node.
-* Create a Linked List object that has a head that points to null or another Node.
-* When inserting, use a while loop to start from head and continue down the next pointer until it hits null (end of the list). Then point the last next pointer to a new node with the inserted value.
-* When checking if a Node exists in the Linked List with a value, traverse through the list and check the value of each node.
-* When returning the Linked List in a string format, build a string while traversing through the list.
 
-Inserting a node at the end will have O(N) time complexity because it must traverse through the entire list to find the end node.
+**Stack**
+* Start with a pointer value called top that is set to a new Node.
+* push(value)
+  * Have top.next set to a new node with the value.
+  * Reassign top to the new node.
+* pop()
+  * Return the value of the top node.
+  * Reassign top to be top.next.
+* peek()
+  * Return the value of the top node.
+* isEmpty()
+  * Check if the top node is null.
 
-Checking if a Node exists in the list and returning a string version of the list will also have O(N) time complexity for the same reason.
+**Queue**
+* Start with a pointer value called front and a pointer value called rear, pointing to a node.
+* enqueue(value)
+  * If front is null, set front to the new node and update rear.
+  * Set rear.next to the new node.
+  * Update rear to the new node.
+* dequeue()
+  * Return the node at the front.
+  * Update front to front.next.
+* peek()
+  * Return the value of the node at the front.
+* isEmpty()
+  * Return if the front is null.
 
-Our space complexity is O(1) because we only store a single value at a time that has a pointer to other parts of the list.
+**Efficiency**
 
-**insertBefore/insertAfter**
-* O(N) time complexity because worst case is it'll have to traverse the whole list to insert the value.
-* O(1) space complexity because worst case only has storing values in temporary nodes.
+Both Stacks and Queues and their operations are O(1) time/space complexity as we never traverse the entire Stack/Queue. Instead, our operations are handled by variables with constant values that do not scale depending on the input.
 
-**kthFromEnd**
-* O(N) time complexity because worst is it'll have to traverse the whole list.
-* O(N) space complexity because we have to store an array the length of the linked list.
