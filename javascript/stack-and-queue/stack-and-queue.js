@@ -80,7 +80,30 @@ class Queue {
   }
 }
 
+class PseudoQueue {
+  constructor() {
+    this.front = new Stack();
+    this.rear = new Stack();
+  }
+
+  enqueue(value) {
+    this.front.push(value);
+  }
+
+  dequeue() {
+    while (!this.front.isEmpty()) {
+      this.rear.push(this.front.pop());
+    }
+    let val = this.rear.pop();
+    while (!this.rear.isEmpty()) {
+      this.front.push(this.rear.pop());
+    }
+    return val;
+  }
+}
+
 module.exports = {
   Stack,
-  Queue
+  Queue,
+  PseudoQueue
 };
