@@ -1,12 +1,13 @@
 # Stack and Queue
 ## Description
-Implement a stack, queue, and pseudoqueue.
+Implement a stack, queue, pseudoqueue, and AnimalShelter.
 
 [Solution link](./stack-and-queue.js)
 
 ## Whiteboard Process
 ![image](./Whiteboard.png)
 ![image](./Whiteboard2.png)
+![image](./Whiteboard3.png)
 
 ## Approach & Efficiency
 
