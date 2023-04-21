@@ -1,33 +1,32 @@
 'use strict';
 
-const { Stack } = require('./stack-and-queue');
+const { Stack, Queue } = require('./stack-and-queue');
 
 function validateBrackets(str) {
-  let regex = /[\{\}\[\]]/;
-  let input = str.split("");
+  let startingBracket = ['(', '{', '['];
+  let endingBracket = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+  };
+  let regex = /[\(\)\{\}\[\]]/;
+  let input = str.split('');
+  let stack = new Stack();
 
-  let stack1 = new Stack();
-  let newstr = '';
-  let newstr2 = '';
-
-  while (input.length > 0) {
-    let item = input.pop();
+  for (let i = 0; i < input.length; i++) {
+    let item = input[i];
     if (item.match(regex)) {
-      newstr += item;
-      stack1.push(item);
+      if (startingBracket.includes(item)) {
+        stack.push(input[i]);
+      } else {
+        let prevBracket = stack.pop();
+        if (endingBracket[prevBracket] !== item) {
+          return false;
+        }
+      }
     }
   }
-
-  while (!stack1.isEmpty()) {
-    let item = stack1.pop();
-    input.push(item);
-  }
-
-  newstr2 = input.join('');
-  console.log('dog', newstr);
-  console.log('cat', newstr2);
-
-  return newstr === newstr2;
+  return true;
 }
 
 module.exports = validateBrackets;
