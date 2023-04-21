@@ -26,7 +26,7 @@ function validateBrackets(str) {
       }
     }
   }
-  return true;
+  return stack.isEmpty();
 }
 
 module.exports = validateBrackets;

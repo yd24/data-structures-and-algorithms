@@ -12,8 +12,8 @@ describe('Testing if validate brackets function works', () => {
     expect(validateBrackets(br3)).toBeTruthy();
   });
 
-  xtest('Can tell that strings have unbalanced brackets', () => {
-    let br = '{';
+  test('Can tell that strings have unbalanced brackets', () => {
+    let br = '{{{{{';
     let br2 = '[{[}]';
     let br3 = '[Jack}';
 
