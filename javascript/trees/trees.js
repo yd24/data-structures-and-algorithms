@@ -10,8 +10,8 @@ class Node {
 }
 
 class BinaryTree {
-  constructor(value) {
-    this.root = new Node(value);
+  constructor(node) {
+    this.root = node;
   }
 
   preOrder(node, arr) {
@@ -63,20 +63,63 @@ class BinaryTree {
     }
     return arr;
   }
+
+  breadthFirstKary(node) {
+    let visited = new Queue();
+    visited.enqueue(node);
+    while (!visited.isEmpty()) {
+      let current = visited.dequeue();
+      if (current.children) {
+        for (let i = 0; i < current.children.length; i++) {
+          visited.enqueue(current.children[i]);
+        }
+      }
+    }
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
-  constructor() {
-    super();
+  constructor(node) {
+    super(node);
   }
 
-  add() {
-
+  add(value) {
+    this.root = this.addToTree(this.root, value);
   }
 
-  contains() {
+  addToTree(node, value) {
+    if (node === null) {
+      node = new Node(value);
+      return node;
+    }
+    if (value > node.value) {
+      node.right = this.addToTree(node.right, value);
+    } else if (value < node.value) {
+      node.left = this.addToTree(node.left, value);
+    }
+    return node;
+  }
 
+  contains(value) {
+    return this.containsInTree(this.root, value);
+  }
+
+  containsInTree(node, value) {
+    if (node === null) {
+      return false;
+    } else {
+      if (value > node.value) {
+        return this.containsInTree(node.right, value);
+      } else if (value < node.value) {
+        return this.containsInTree(node.left, value);
+      }
+      return true;
+    }
   }
 }
 
-module.exports = BinarySearchTree;
+module.exports = {
+  Node,
+  BinaryTree,
+  BinarySearchTree,
+};
