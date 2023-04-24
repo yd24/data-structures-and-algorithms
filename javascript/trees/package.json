@@ -1,0 +1,16 @@
+{
+  "name": "trees",
+  "version": "1.0.0",
+  "description": "",
+  "main": "trees.js",
+  "scripts": {
+    "start": "node trees.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.5.0"
+  }
+}
