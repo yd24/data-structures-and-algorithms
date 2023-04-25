@@ -6,6 +6,7 @@ Implement a binary tree and a binary search tree.
 
 ## Whiteboard Process
 ![image](./Whiteboard.png)
+![image](./Whiteboard2.png)
 
 ## Approach & Efficiency
 
@@ -17,6 +18,20 @@ Implement a binary tree and a binary search tree.
   * In-order, we check the left child first, then the current node, then the right child.
   * Post-order, we check the children first then the current node.
   * Takes O(N) time complexity because we must iterate through the entire tree, no matter what. Takes O(1) space complexity because we only store one Node variable at a time.
+
+* findMax
+  * Set an initial max value of -1.
+  * We use breadth-first traversal to iterate through the node.
+    * Insert a root node into a Queue and while the Queue is not empty
+      * We take out the first node in the Queue.
+      * If the node value is greater than max
+        * max = node value
+      * If the node has a left
+        * Add node.left to the Queue.
+      * If the node has a right
+        * Add node.right to the Queue.
+  * Return max.
+  * Has O(N) time complexity as we traverse through the entire tree. O(N) space complexity as our Queue's size is dependent on the size of our input.
 
 **Binary Search Tree**
 

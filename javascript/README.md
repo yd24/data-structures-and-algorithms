@@ -15,6 +15,7 @@
 * [Day 12](./stack-and-queue/README.md)
 * [Day 13](./stack-and-queue/README.md)
 * [Day 15](./trees/README.md)
+* [Day 16](./trees/README.md)
 
 ### Folder and Challenge Setup
 
