@@ -59,4 +59,17 @@ describe('Testing Binary Tree', () => {
     expect(bst.contains(2)).toBeTruthy();
     expect(bst.contains(19)).toBeFalsy();
   });
+
+  test('Can get max', () => {
+    let max = btree.findMax();
+    expect(max).toEqual(10);
+
+    btree.root.left.left.left = new Node(15);
+    max = btree.findMax();
+    expect(max).toEqual(15);
+
+    btree = new BinaryTree(null);
+    max = btree.findMax();
+    expect(max).toEqual(-1);
+  });
 });
