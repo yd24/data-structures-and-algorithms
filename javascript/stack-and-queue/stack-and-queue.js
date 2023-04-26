@@ -139,4 +139,5 @@ module.exports = {
   PseudoQueue,
   Animal,
   AnimalShelter,
+  Node,
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-const { Stack, Queue } = require('./stack-and-queue');
+const { Stack } = require('./stack-and-queue');
 
 function validateBrackets(str) {
   let startingBracket = ['(', '{', '['];

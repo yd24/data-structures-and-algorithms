@@ -60,6 +60,11 @@ describe('Testing Binary Tree', () => {
     expect(bst.contains(19)).toBeFalsy();
   });
 
+  test('Can successfully do breadth-first traversal', () => {
+    let arr = btree.breadthFirst(btree.root, []);
+    expect(arr).toEqual([5, 3, 7, 1, 4, 6, 10]);
+  });
+
   test('Can get max', () => {
     let max = btree.findMax();
     expect(max).toEqual(10);

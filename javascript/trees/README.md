@@ -33,6 +33,19 @@ Implement a binary tree and a binary search tree.
   * Return max.
   * Has O(N) time complexity as we traverse through the entire tree. O(N) space complexity as our Queue's size is dependent on the size of our input.
 
+* breadthFirst
+  * Insert a root node into a Queue and while the Queue is not empty
+    * We take out the first node in the Queue.
+    * We push the node's value into an array.
+    * If the node value is greater than max
+      * max = node value
+    * If the node has a left
+      * Add node.left to the Queue.
+    * If the node has a right
+      * Add node.right to the Queue.
+  * Return array.
+* Has O(N) time complexity as we traverse through the entire tree. O(N) space complexity as our Queue's size is dependent on the size of our input.
+
 **Binary Search Tree**
 
 * add
