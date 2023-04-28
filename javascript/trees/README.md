@@ -1,6 +1,6 @@
 # Binary Trees
 ## Description
-Implement a binary tree and a binary search tree.
+Implement a binary tree, binary search tree, and K-ary tree.
 
 [Solution link](./trees.js)
 
@@ -17,7 +17,7 @@ Implement a binary tree and a binary search tree.
   * Pre-order, we check the current value first then check the children.
   * In-order, we check the left child first, then the current node, then the right child.
   * Post-order, we check the children first then the current node.
-  * Takes O(N) time complexity because we must iterate through the entire tree, no matter what. Takes O(1) space complexity because we only store one Node variable at a time.
+  * Takes O(N) time complexity because we must iterate through the entire tree, no matter what. Takes O(N) space complexity because each node requires a recursive call on the callstack.
 
 * findMax
   * Set an initial max value of -1.
@@ -61,4 +61,22 @@ Implement a binary tree and a binary search tree.
   * If the value is smaller than the node value, we return a recursive call (node.left, value).
   * Else we return true.
 
-Both of these take O(N) time complexity at worst as we will need to traverse through the whole tree. Both also take O(1) space complexity as we only look at one node at a time.
+Both of these take O(N) time complexity at worst as we will need to traverse through the whole tree. Both also take O(N) space complexity as a recursive call gets added to the callstack for each node.
+
+**K-ary Tree**
+
+* fizzBuzzTree
+  * We check if the node value is divisible by 3.
+    * If so, we change the value to 'Fizz'.
+  * We check if the node value is divisible by 5.
+    * If so, we change the value to 'Buzz'.
+  * We check if the node value is divisible by 3 and 5.
+    * If so, we change the value to 'FizzBuzz'.
+
+  * We check if the node has any children.
+    * If so, we iterate through the children.
+      * For each child, we call the function again recursively.
+
+  * We return a new K-ary tree made from the node.
+
+This function takes O(N) time complexity because we are traversing through the entire tree once. It also takes O(N) space complexity because we are adding recursive calls to the call stack for each node.

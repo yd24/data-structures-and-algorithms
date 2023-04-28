@@ -9,6 +9,13 @@ class Node {
   }
 }
 
+class KaryNode {
+  constructor(value) {
+    this.value = value;
+    this.children = null;
+  }
+}
+
 class BinaryTree {
   constructor(node) {
     this.root = node;
@@ -86,18 +93,51 @@ class BinaryTree {
     }
     return max;
   }
+}
+
+class KaryTree {
+  constructor(node) {
+    this.root = node;
+  }
+
+  fizzBuzzTree(node) {
+    let root = this.helperFizz(node);
+    return new KaryTree(root);
+  }
+
+  helperFizz(node) {
+    if (node.value % 3 === 0 && node.value % 5 === 0) {
+      node.value = 'FizzBuzz';
+    } else if (node.value % 3 === 0) {
+      node.value = 'Fizz';
+    } else if (node.value % 5 === 0) {
+      node.value = 'Buzz';
+    } else {
+      node.value = node.value.toString();
+    }
+
+    if (node.children !== null) {
+      for (let i = 0; i < node.children.length; i++) {
+        this.helperFizz(node.children[i]);
+      }
+    }
+    return node;
+  }
 
   breadthFirstKary(node) {
     let visited = new Queue();
+    let arr = [];
     visited.enqueue(node);
     while (!visited.isEmpty()) {
       let current = visited.dequeue();
+      arr.push(current.value);
       if (current.children) {
         for (let i = 0; i < current.children.length; i++) {
           visited.enqueue(current.children[i]);
         }
       }
     }
+    return arr;
   }
 }
 
@@ -145,4 +185,6 @@ module.exports = {
   Node,
   BinaryTree,
   BinarySearchTree,
+  KaryNode,
+  KaryTree,
 };

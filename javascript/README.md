@@ -17,6 +17,7 @@
 * [Day 15](./trees/README.md)
 * [Day 16](./trees/README.md)
 * [Day 17](./trees/README.md)
+* [Day 18](./trees/README.md)
 
 ### Folder and Challenge Setup
 
