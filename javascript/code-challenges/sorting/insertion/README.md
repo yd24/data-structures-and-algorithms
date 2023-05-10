@@ -3,6 +3,7 @@
 ## Description
 
 Implement Insertion Sort for an unsorted array of numbers.
+[Solution link](https://github.com/yd24/data-structures-and-algorithms/pull/34)
 
 ## Whiteboard Process
 
