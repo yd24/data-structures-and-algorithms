@@ -8,7 +8,7 @@ function insert(arr, value) {
   }
   while (i < arr.length) {
     temp = arr[i];
-    arr[i] = temp;
+    arr[i] = value;
     value = temp;
     i++;
   }
@@ -16,10 +16,16 @@ function insert(arr, value) {
 }
 
 function insertionSort(arr) {
-  let sorted = new Array();
-  sorted[0] = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    insert(sorted, arr[i]);
+  if (arr.length < 2) {
+    return arr;
+  } else {
+    let sorted = new Array();
+    sorted[0] = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      insert(sorted, arr[i]);
+    }
+    return sorted;
   }
-  return sorted;
 }
+
+module.exports = insertionSort;
