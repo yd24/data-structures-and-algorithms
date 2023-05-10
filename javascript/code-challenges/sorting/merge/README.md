@@ -3,7 +3,7 @@
 ## Description
 
 Implement Merge Sort for an unsorted array of numbers.
-[Solution link](https://github.com/yd24/data-structures-and-algorithms/pull/34)
+[Solution link](https://github.com/yd24/data-structures-and-algorithms/pull/35)
 
 ## Whiteboard Process
 
