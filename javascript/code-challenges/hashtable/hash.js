@@ -48,7 +48,7 @@ class HashTable {
 
   has(key) {
     let position = this.hash(key);
-    if (this.buckets[position] !== null){
+    if (this.buckets[position]){
       return true;
     }
     return false;
