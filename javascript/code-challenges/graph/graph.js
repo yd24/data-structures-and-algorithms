@@ -47,6 +47,27 @@ class Graph {
   size() {
     return this.size;
   }
+
+  breadthFirst(start) {
+    let visited = new Map();
+    let queue = [];
+    let vertices = [];
+
+    queue.push(start);
+    while (queue.length > 0) {
+      let vertex = queue.shift();
+      if (!visited.has(vertex)) {
+        let neighbors = this.adjacencyList.get(vertex);
+        visited.set(vertex, vertex);
+        vertices.push(vertex.value);
+        if (neighbors.length > 0) {
+          neighbors.forEach(neighbor => queue.push(neighbor.endVertex));
+        }
+      }
+    }
+    console.log(vertices.toString().replace(/,/g, ', '));
+    return vertices;
+  }
 }
 
 module.exports = {

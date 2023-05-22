@@ -46,4 +46,29 @@ describe('Testing Graph class', () => {
     neighbors = testGraph.getNeighbors(testVert);
     expect(neighbors.length).toEqual(2);
   });
+
+  test('Can perform breadth-first traversal', () => {
+    let testGraph2 = new Graph();
+    let start = testGraph2.addVertex('Pandora');
+    let vertex2 = testGraph2.addVertex('Arendelle');
+
+    testGraph2.addEdge(start, vertex2);
+
+    let vertex3 = testGraph2.addVertex('Metroville');
+    testGraph2.addEdge(vertex2, vertex3);
+
+    let vertex4 = testGraph2.addVertex('Monstropolis');
+    testGraph2.addEdge(vertex2, vertex4);
+    testGraph.addEdge(vertex3, vertex4);
+
+    let vertex5 = testGraph2.addVertex('Narnia');
+    testGraph2.addEdge(vertex3, vertex5);
+
+    let vertex6 = testGraph2.addVertex('Naboo');
+    testGraph2.addEdge(vertex3, vertex6);
+    testGraph2.addEdge(vertex5, vertex6);
+
+    let traversed = testGraph2.breadthFirst(start);
+    expect(traversed).toEqual(['Pandora', 'Arendelle', 'Metroville', 'Monstropolis', 'Narnia', 'Naboo']);
+  });
 });
