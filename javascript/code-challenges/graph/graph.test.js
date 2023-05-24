@@ -59,7 +59,7 @@ describe('Testing Graph class', () => {
 
     let vertex4 = testGraph2.addVertex('Monstropolis');
     testGraph2.addEdge(vertex2, vertex4);
-    testGraph.addEdge(vertex3, vertex4);
+    testGraph2.addEdge(vertex3, vertex4);
 
     let vertex5 = testGraph2.addVertex('Narnia');
     testGraph2.addEdge(vertex3, vertex5);
@@ -70,5 +70,37 @@ describe('Testing Graph class', () => {
 
     let traversed = testGraph2.breadthFirst(start);
     expect(traversed).toEqual(['Pandora', 'Arendelle', 'Metroville', 'Monstropolis', 'Narnia', 'Naboo']);
+  });
+
+  test('Can find price of flights in business trip', () => {
+    testGraph = new Graph();
+    let start = testGraph.addVertex('Pandora');
+    let vertex2 = testGraph.addVertex('Arendelle');
+
+    testGraph.addEdge(start, vertex2, 150);
+
+    let vertex3 = testGraph.addVertex('Metroville');
+    testGraph.addEdge(vertex2, vertex3, 99);
+    testGraph.addEdge(start, vertex3, 82);
+
+    let vertex4 = testGraph.addVertex('Monstropolis');
+    testGraph.addEdge(vertex2, vertex4, 42);
+    testGraph.addEdge(vertex3, vertex4, 105);
+
+    let vertex5 = testGraph.addVertex('Narnia');
+    testGraph.addEdge(vertex3, vertex5, 37);
+
+    let vertex6 = testGraph.addVertex('Naboo');
+    testGraph.addEdge(vertex3, vertex6, 26);
+    testGraph.addEdge(vertex5, vertex6, 250);
+    testGraph.addEdge(vertex4, vertex6, 73);
+
+    let price = testGraph.businessTrip([start, vertex2]);
+    let price2 = testGraph.businessTrip([vertex3, start]);
+    let price3 = testGraph.businessTrip([vertex2, vertex4, vertex6]);
+
+    expect(price).toEqual(150);
+    expect(price2).toEqual(null);
+    expect(price3).toEqual(115);
   });
 });

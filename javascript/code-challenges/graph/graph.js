@@ -57,7 +57,7 @@ class Graph {
     while (queue.length > 0) {
       let vertex = queue.shift();
       if (!visited.has(vertex)) {
-        let neighbors = this.adjacencyList.get(vertex);
+        let neighbors = this.getNeighbors(vertex);
         visited.set(vertex, vertex);
         vertices.push(vertex.value);
         if (neighbors.length > 0) {
@@ -67,6 +67,26 @@ class Graph {
     }
     console.log(vertices.toString().replace(/,/g, ', '));
     return vertices;
+  }
+
+  businessTrip(cities) {
+    let price = 0;
+    let currentCity = cities.shift();
+    while (cities.length > 0) {
+      if (this.getNeighbors(currentCity).length > 0) {
+        console.log(currentCity);
+        let neighbors = this.getNeighbors(currentCity);
+        let nextCity = cities.shift();
+        let index = neighbors.findIndex(edge => edge.endVertex === nextCity);
+        if (index > -1) {
+          price += neighbors[index].weight;
+          currentCity = nextCity;
+        } else {
+          return null;
+        }
+      }
+    }
+    return price;
   }
 }
 
