@@ -69,12 +69,30 @@ class Graph {
     return vertices;
   }
 
+  handleDepth(vertex, arr) {
+    let visited = new Map();
+    return this.depthFirst(vertex, arr, visited);
+  }
+
+  depthFirst(vertex, arr, visited) {
+    if (!visited.has(vertex)) {
+      arr.push(vertex);
+      visited.set(vertex, vertex);
+      while (this.getNeighbors(vertex).length > 0) {
+        let neighbors = this.getNeighbors(vertex);
+        for (let i = 0; i < neighbors.length; i++) {
+          this.depthFirst(neighbors[i].endVertex, arr, visited);
+        }
+      }
+    }
+    return arr;
+  }
+
   businessTrip(cities) {
     let price = 0;
     let currentCity = cities.shift();
     while (cities.length > 0) {
       if (this.getNeighbors(currentCity).length > 0) {
-        console.log(currentCity);
         let neighbors = this.getNeighbors(currentCity);
         let nextCity = cities.shift();
         let index = neighbors.findIndex(edge => edge.endVertex === nextCity);

@@ -74,14 +74,14 @@ describe('Testing Graph class', () => {
 
   test('Can find price of flights in business trip', () => {
     testGraph = new Graph();
-    let start = testGraph.addVertex('Pandora');
+    testVert = testGraph.addVertex('Pandora');
     let vertex2 = testGraph.addVertex('Arendelle');
 
-    testGraph.addEdge(start, vertex2, 150);
+    testGraph.addEdge(testVert, vertex2, 150);
 
     let vertex3 = testGraph.addVertex('Metroville');
     testGraph.addEdge(vertex2, vertex3, 99);
-    testGraph.addEdge(start, vertex3, 82);
+    testGraph.addEdge(testVert, vertex3, 82);
 
     let vertex4 = testGraph.addVertex('Monstropolis');
     testGraph.addEdge(vertex2, vertex4, 42);
@@ -95,12 +95,17 @@ describe('Testing Graph class', () => {
     testGraph.addEdge(vertex5, vertex6, 250);
     testGraph.addEdge(vertex4, vertex6, 73);
 
-    let price = testGraph.businessTrip([start, vertex2]);
-    let price2 = testGraph.businessTrip([vertex3, start]);
+    let price = testGraph.businessTrip([testVert, vertex2]);
+    let price2 = testGraph.businessTrip([vertex3, testVert]);
     let price3 = testGraph.businessTrip([vertex2, vertex4, vertex6]);
 
     expect(price).toEqual(150);
     expect(price2).toEqual(null);
     expect(price3).toEqual(115);
+  });
+
+  test('Can successfully depth-first traverse through graph', () => {
+    let arr = testGraph.handleDepth(testVert, []);
+    console.log(arr);
   });
 });
